@@ -19,6 +19,12 @@ extractor.getCaption("1YqGopyVqkvJv")
 
 ### Contact:
 mail: aryya.widigdha@yahoo.com   
+web: getspaceaudio.xyz
+
+
+## Stats
+[![Downloads](https://static.pepy.tech/personalized-badge/twitterspaces2text?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads)](https://pepy.tech/project/twitterspaces2text)
+
 
 License    
 ----     

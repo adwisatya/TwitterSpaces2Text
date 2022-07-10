@@ -29,9 +29,18 @@ To use this library you just need to provide Twitter Spaces ID
 Contact:
 ~~~~~~~~
 
-mail: aryya.widigdha@yahoo.com
+| mail: aryya.widigdha@yahoo.com
+| web: getspaceaudio.xyz
+
+Stats
+-----
+
+|Downloads|
 
 License
 -------
 
 MIT License
+
+.. |Downloads| image:: https://static.pepy.tech/personalized-badge/twitterspaces2text?period=total&units=international_system&left_color=black&right_color=orange&left_text=Downloads
+   :target: https://pepy.tech/project/twitterspaces2text

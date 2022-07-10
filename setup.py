@@ -1,6 +1,11 @@
 from distutils.core import setup, Extension
 import subprocess
-subprocess.run(["pandoc","--from=markdown","--to=rst","--output=README","README.md"])
+
+try:
+  subprocess.run(["pandoc","-v"])
+  subprocess.run(["pandoc","--from=markdown","--to=rst","--output=README","README.md"])
+except:
+  pass
 
 with open("README", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -8,7 +13,7 @@ with open("README", "r", encoding="utf-8") as fh:
 setup(
   name = 'TwitterSpaces2Text',
   packages = ['TwitterSpaces2Text'],
-  version = '0.1',
+  version = '0.1.1',
   license='MIT',
   description = 'This library helps you to download Twitter Spaces text/caption',
   long_description=long_description,
