@@ -35,9 +35,19 @@ class Extractor:
     def setAccessToken(self):
         self.access_token = requests.post('https://proxsee.pscp.tv/api/v2/accessChatPublic',
         json = {"chat_token":self.chat_token}).json()['access_token']
+    def is_json(myjson):
+        try:
+            json.loads(myjson)
+        except:
+            return False
+        return True
     def getCurrentCaption(self,cursor):
-        return requests.post('https://chatman-replay-eu-central-1.pscp.tv/chatapi/v1/history',
-        json={"access_token":self.access_token	,"cursor":cursor,"limit":1000,"since":None,"quick_get":True}).json()
+        try:
+            request=requests.post('https://chatman-replay-eu-central-1.pscp.tv/chatapi/v1/history',
+            json={"access_token":self.access_token  ,"cursor":cursor,"limit":1000,"since":None,"quick_get":False}).json()
+        except:
+            request=None
+        return request
     def getCaption(self,spaces_id):
         self.spaces_id = spaces_id
         self.setGuestToken()
@@ -48,12 +58,14 @@ class Extractor:
         cursor = ""
         while(cursor_exist):
             raw_data = self.getCurrentCaption(cursor)
-            for message in raw_data['messages']:
-                payload = json.loads(message['payload'])
-                body = json.loads(payload['body'])
-                if "final" in body:
-                    if body['final']:
-                        print(body['programDateTime']+' '+body['username']+':  '+body['body'])
+            if raw_data:
+                for message in raw_data['messages']:
+                    payload = json.loads(message['payload'])
+                    body = json.loads(payload['body'])
+                    if "final" in body:
+                        if body['final']:
+                            if body['body']:
+                                print(body['programDateTime']+' '+body['username']+':  '+body['body'])
             try:
                 if "cursor" in raw_data:
                     if int(raw_data['cursor']) > 0:
