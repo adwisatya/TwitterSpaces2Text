@@ -66,6 +66,9 @@ class Extractor:
                         if body['final']:
                             if body['body']:
                                 print(body['programDateTime']+' '+body['username']+':  '+body['body'])
+#                                print(body['programDateTime']+' '+body['username']+' '+body['displayName']+':  '+body['body'])
+#                                print(body['programDateTime']+' '+body['displayName']+':  '+body['body'])
+
             try:
                 if "cursor" in raw_data:
                     if int(raw_data['cursor']) > 0:
